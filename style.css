@@ -17,3 +17,48 @@ body{
     background: white;
     box-shadow: 0 20px 10px rgba(0,0,0,0,0.8);
 }
+.logo h2{
+    color: #2563eb;
+    font-size: 30px;
+}
+
+.logo p{
+    font-size: 13px;
+    color: gray;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a{
+    text-decoration: none;       
+    color: #333;
+    font-weight: bold;
+}
+
+.button{
+    display: flex;
+    gap: 15px;
+}
+
+.login{
+    padding: 10px 25px;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.register{
+    padding: 10px 25px;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+
