@@ -1,0 +1,37 @@
+.applications{
+    width: 80%;
+    margin: 30px auto;
+
+}
+
+.application-card{
+    background: white;
+    padding: 25px;
+    margin-top: 20px;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.application-card h3{
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.application-card p{
+    margin: 10px 0;
+}
+
+.application-card button{
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.withdraw-btn:hover{
+    background: #dc2626;
+}

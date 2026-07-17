@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+}
+
+header{
+    background: #198754;
+    color: white;
+    padding: 20px 50px;
+}
+
+header h1{
+    margin: 0;
+}
+
+nav{
+    margin-top: 15px;
+}
+
+nav a{
+    color: white;
+    margin: 30px auto;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.welcome{
+    width: 80%;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.summary{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.summary-card{
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.summary-card h3{
+    color: #198754;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.jobs{
+    width: 80%;
+    margin: 30px auto;
+}
+
+.job-card{
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #198754;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+button{
+    background: #198754;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.post-btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.post-btn{
+    display: inline;
+    background: #198754;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.post-btn:hover{
+    background: #157347;
+}

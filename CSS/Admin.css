@@ -1,0 +1,17 @@
+.button-row{
+    display:flex;
+    gap: 15px;
+}
+
+.login-btn{
+    width: 170px;
+}
+
+.admin-btn{
+    background: #c62828;
+
+}
+
+.admin-btn:hover{
+    background: #b71c1c;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psot Jobs</title>
+    <link rel="stylesheet" href="/CSS/Post.css">
+</head>
+
+<body>
+    <div class="post-job-container">
+        <h1>📝Post a New Job</h1>
+        <p>Create a new job opportunity for studnets.</p>
+
+        <form>
+            <div class="form-row">
+                <label>Job Title</label>
+                <input type="text" placeholder="Software Devloper Intern">
+            </div>
+
+            <div class="form-row">
+                <label>Comapny Name</label>
+                <input type="text" placeholder="ABC Technology">
+            </div>
+
+            <div class="form-row">
+                <label>Location</label>
+                <input type="text" placeholder="Pune">
+            </div>
+
+            <div class="form-row">
+                <label for="jobtype">Job Type</label>
+
+                <select id="jobtype">
+                    <option>Internship</option>
+                    <option>Full Time</option>
+                    <option>Part Time</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label>Salary</label>
+                <input type="text" placeholder="$20,000/month">
+            </div>
+
+            <div class="form-row">
+                <label>Required Skills</label>
+                <input type="text" placeholder="Java,SQL,HTMl,CSS">
+            </div>
+
+            <div class="form-row">
+                <label for="Description">Job Description</label>
+                <textarea id="Description" rows="6" placeholder="Describe the job responsibilities"></textarea>
+            </div>
+
+            <div class="form-row">
+                <label for="Deadline">Appplication Deadline</label>
+                <input id="Deadline" type="date">
+            </div>
+
+            <div class="form-row">
+                <label for="Experience">Experience</label>
+                <select id="Experience">
+                    <option>Fresher</option>
+                    <option>0-1 Years</option>
+                    <option>1-3 Years</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="Qualification">Qualification</label>
+
+                <select id="Qualification">
+                    <option>BCA</option>
+                    <option>B.Tech</option>
+                    <option>B.sc</option>
+                    <option>MCA</option>
+                </select>
+            </div>
+
+            <div class="button-row">
+
+                <button type="submit" class="post-btn">Post Job</button>
+
+
+                <a href="Recruiter_Dashboard.html" class="back-btn">
+                    Back
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

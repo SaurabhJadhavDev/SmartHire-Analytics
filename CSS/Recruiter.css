@@ -1,0 +1,47 @@
+
+
+.register-container h1{
+    color: #16a34a;
+    margin-bottom: 10px;
+}
+
+.register-container p{
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+.form-row label{
+    width: 140px;
+    font-weight: bold;
+}
+
+.register-container{
+    width: 700px;
+}
+
+.register-container a{
+    color: #1d4ed8;
+}
+
+.register-container a:hover{
+    text-decoration: underline;
+
+}
+
+.back-btn{
+    display: block;
+    width: 50%;
+    margin: 30px auto 20px auto;
+    height: 50px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.back-btn:hover{
+    background: #1d4ed8;
+}
+

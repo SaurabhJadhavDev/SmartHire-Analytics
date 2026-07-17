@@ -1,11 +1,17 @@
+<?php
+include("../Database/db_connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
-    <link rel="stylesheet" href="CSS/Register.css">
+    <link rel="stylesheet" href="../CSS/Register.css">
 </head>
+
 <body>
 
     <div class="register-container">
@@ -13,25 +19,26 @@
         <h1>Create Student Account</h1>
         <p>Join <span class="highlight">CareerConnect</span> and start your career journey.</p>
 
-        <form action="Register.php" method="POST">
+        <form action="" method="POST">
 
             <div class="form-row">
-            <label>Full Name:</label>
-            <input type="text" name="fullname" placeholder="Enter your full name" required>
-            </div>
-            
-            <div class="form-row">
-            <label>Email Address:</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+                <label>Full Name:</label>
+                <input type="text" name="fullname" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-row">
-            <label>Password:</label>
-            <input type="password" placeholder="Create password" required>
+                <label>Email Address:</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
             </div>
 
-            <input type="submit" value="Create Account" class="register-btn">
+            <div class="form-row">
+                <label>Password:</label>
+                <input type="password" placeholder="Create password" required>
+            </div>
 
+            <a href="Student_Dashboard.html">
+                <input type="submit" value="Create Account" class="register-btn">
+            </a>
         </form>
 
         <p class="login-link">
@@ -41,4 +48,5 @@
         </p>
     </div>
 </body>
+
 </html>
