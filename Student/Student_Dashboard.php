@@ -1,21 +1,32 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['student_email'])){
+    header("Location: login.php");
+    exit();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="/CSS/Studetnt_Dashboard.css">
+    <link rel="stylesheet" href="../CSS/Studetnt_Dashboard.css">
 </head>
 <body>
     <header>
         <h1>CareerConnect</h1>
 
         <nav>
-            <a href="Student_Dashboard.html">Home</a>
+            <a href="Student_Dashboard.php">Home</a>
             <a href="Jobs.html">Jobs</a>
             <a href="Application.html">My Applications</a>
-            <a href="Profile.html">Profile</a>
-            <a href="/Home/index.html">Logout</a>
+            <a href="Profile.php">Profile</a>
+            <a href="Logout.php">Logout</a>
         </nav>
     </header>
 

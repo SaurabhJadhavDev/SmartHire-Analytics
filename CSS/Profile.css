@@ -42,6 +42,11 @@
 }
 
 .edit-profile-btn{
+    display: inline-flex;
+    text-decoration: none;
+}
+
+.edit-profile-btn button{
     padding: 10px 20px;
     background: #2563eb;
     color: white;
@@ -49,8 +54,10 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    font-family: inherit;
+    transition: background 0.2s ease;
 }
 
-.edit-profile-btn:hover{
+.edit-profile-btn:hover button{
     background: #1d4ed8;
 }
