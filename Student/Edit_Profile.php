@@ -27,12 +27,61 @@ if (isset($_POST['save'])) {
     $degree = $_POST['degree'];
     $year = $_POST['year'];
     $cgpa = $_POST['cgpa'];
+    $skills = $_POST['skills'];
+    $certifications = $_POST['certifications'];
+    $about_me = $_POST['about_me'];
+
+    if($_FILES['resume']['name'] != ""){
+        $resume = $_FILES['resume']['name'];
+        $tmp_name = $_FILES['resume']['tmp_name'];
+        $folder = '../Uploads/' . $resume;
+        move_uploaded_file($tmp_name, $folder);
+    } else {
+        $resume = $row['resume'];
+    }
 
     $update_query = "UPDATE Student SET full_Name='$full_Name', email='$email', phone='$phone', 
     date_of_birth='$dob', city='$city', college='$college', degree='$degree', year='$year',
-    cgpa='$cgpa' WHERE email='$old_email'";
+    cgpa='$cgpa', resume='$resume' , about_me='$about_me' WHERE email='$old_email'";
 
     if (mysqli_query($conn, $update_query)) {
+        $student_id = $row['student_id'];
+
+        if(trim($skills) != ""){
+            mysqli_query($conn, "DELETE FROM Student_Skills WHERE student_id='$student_id'");
+
+            $skill_array = explode(',', $skills);
+            foreach ($skill_array as $skill) {
+                $skill = trim($skill);
+
+                if($skill != ""){
+                    mysqli_query(
+                        $conn,
+                        "INSERT INTO Student_Skills (student_id, skill_name) VALUES ('$student_id', '$skill')"
+                    );
+                }
+            }
+        }
+
+        $studnet_id = $row['student_id'];
+
+         if (trim($certifications) != "")
+            {
+            mysqli_query($conn,"DELETE FROM Student_Certifications WHERE student_id='$student_id'");
+
+            $certification_array = explode(",", $certifications);
+            foreach ($certification_array as $certification) {
+                $certification = trim($certification);
+
+                if ($certification != "") {
+                    mysqli_query(
+                        $conn,
+                        "INSERT INTO Student_Certifications (student_id, certification_name) VALUES ('$student_id', '$certification')"
+                    );
+                }
+            }
+        }
+        
         $_SESSION['student_email'] = $email;
         echo "<script>alert('Profile updated successfully!'); window.location.href='Profile.php';</script>";
         exit();
@@ -130,6 +179,27 @@ if (isset($_POST['save'])) {
 
                 </div>
 
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label>Skills</label>
+                    <input type="text" name="skills" placeholder="Example:PHP, MYSQL,HTML">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label>Courses & Certifications</label>
+                    <input type="text" name="certifications" placeholder="Example: Web Development, Data Science">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label>About Me</label>
+                    <textarea name="about_me" rows="5"><?php echo $row['about_me']; ?></textarea>
+                </div>
             </div>
 
             <div class="button-group">

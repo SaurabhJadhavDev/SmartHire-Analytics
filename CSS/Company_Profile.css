@@ -39,8 +39,14 @@
     font-size: 17px;
 }
 
-.edit-profile{
-    display: block;
+.edit-container{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.edit-btn{
+    display:inline-block;
     margin: 30px auto;
     background: #198754;
     color: white;
@@ -48,9 +54,14 @@
     padding: 14px 35px;
     border-radius: 8px;
     font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }
-.edit-profile:hover{
+
+
+
+.edit-btn:hover{
     background: #157347;
 }
 
@@ -62,14 +73,15 @@
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
+    font-size: 17px;
     transition: .3s;
     
 }
 
 .back-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .back-btn:hover{

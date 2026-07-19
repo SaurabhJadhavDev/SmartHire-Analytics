@@ -22,6 +22,8 @@ if (isset($_POST['login'])) {
             $row = mysqli_fetch_assoc($result);
 
             if ($password == $row['Password']) {
+
+                $_SESSION['student_id'] = $row['student_id'];
                 $_SESSION['student_email'] = $row['email'];
                 $_SESSION['student_name'] = $row['full_Name'];
 

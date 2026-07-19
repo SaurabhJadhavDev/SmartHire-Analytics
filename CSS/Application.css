@@ -32,6 +32,16 @@
     cursor: pointer;
 }
 
+.withdraw-btn{
+    background:#e53935;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
+    display:inline-block;
+    margin-left:10px;
+}
+
 .withdraw-btn:hover{
-    background: #dc2626;
+    background:#c62828;
 }

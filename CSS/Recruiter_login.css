@@ -26,6 +26,8 @@
 .button-row{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 25px;
     gap: 20px;
 }
 
@@ -34,13 +36,24 @@
     height: 45px;
     border: none;
     border-radius: 12px;
-    color: white;
     font-size: 18px;
     cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+}
+
+.login-btn{
+    background: #2563eb;
+    color: white;
 }
 
 .back-btn{
-    background: #2563eb;
+    background: #2563eb;  
+    color: white;
 }
 
 .back-btn:hover{

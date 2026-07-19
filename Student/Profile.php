@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['student_email'])){
+if (!isset($_SESSION['student_email'])) {
     header("Location: login.php");
     exit();
-}   
+}
 
 include("../Database/db_connect.php");
 
@@ -35,8 +35,8 @@ $row = mysqli_fetch_assoc($result);
 
         <nav>
             <a href="Student_Dashboard.php">Home</a>
-            <a href="Jobs.html">Jobs</a>
-            <a href="Application.html">My Applications</a>
+            <a href="Jobs.php">Jobs</a>
+            <a href="Application.php">My Applications</a>
             <a href="Profile.php">Profile</a>
             <a href="Logout.php">Logout</a>
         </nav>
@@ -78,26 +78,64 @@ $row = mysqli_fetch_assoc($result);
             <h3>Skills</h3>
 
             <ul>
-                <li>No Skills Added</li>
+                <?php $student_id = $row['student_id'];
+                $get_skills = mysqli_query($conn, "SELECT skill_name FROM Student_Skills WHERE student_id = '$student_id'");
+                if (mysqli_num_rows($get_skills)) {
+                    echo "<ul>";
+                    while ($skill = mysqli_fetch_assoc($get_skills)) {
+                        echo "<li>" . $skill['skill_name'] . "</li>";
+                    }
+                    echo "</ul>";
+                } else {
+                    echo "<p>No Skills Added</p>";
+                }
+                ?>
             </ul>
         </div>
 
         <div class="profile-card">
-            <h3>Courses & Certifications</h3>
 
-            <ul>
-                <li>No Courses Added</li>
-            </ul>
+            <h3>Courses & Certifications</h3>
+            <?php 
+            $student_id = $row['student_id'];
+
+            $get_certifications = mysqli_query($conn, "SELECT certification_name FROM Student_Certifications WHERE student_id = '$student_id'");
+
+            if(mysqli_num_rows($get_certifications) > 0){
+                echo "<ul>";
+
+                while($certification = mysqli_fetch_assoc($get_certifications)){
+                    echo "<li>". $certification['certification_name'] . "</li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "<p>No Courses Added</p>";
+            }
+
+            ?>
         </div>
 
         <div class="profile-card">
             <h3>Resume</h3>
-            <p>No Resume Uploaded</p>
+            <?php if (!empty($row['resume'])) {
+                ?> <a href="../Uploads/<?php echo $row['resume']; ?>" target="_blank" class="resume-btn">
+                    View Resume
+                </a>
+                <?php
+            } else {
+                echo "No Resume Uploaded";
+            }
+            ?>
         </div>
 
         <div class="profile-card">
             <h3>About Me</h3>
-            <p>No Description Added</p>
+            <?php if (!empty($row['about_me'])) {
+                echo "<p>" . $row['about_me'] . "</p>";
+            } else {
+                echo "<p>No information provided.</p>";
+            }
+            ?>
         </div>
     </section>
 </body>

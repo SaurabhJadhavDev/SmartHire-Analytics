@@ -47,19 +47,19 @@ nav a:hover{
     color: #2563eb;
 }
 
-.job-container{
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.jobs{
+    width: 90%;
+    margin: 30px auto;
 }
 
 .job-card{
-    border-left: 5px solid #2563eb;
-    padding: 18px;
-    margin-bottom: 20px;
+    width: 800px;
+    margin: 25px 0;
     background: #f9fbff;
-    border-radius: 8px;
+    border-left: 5px solid #2563eb;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 
 .job-card h3{
@@ -78,6 +78,7 @@ nav a:hover{
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .apply-btn:hover{
