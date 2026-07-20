@@ -4,16 +4,62 @@ session_start();
 include("../Database/db_connect.php");
 
 if (!isset($_SESSION['student_id'])) {
-    header("Location: login.php");
+    header("Location: Student_Login.php");
     exit();
 }
 
 $student_id = $_SESSION['student_id'];
 
-$query = "SELECT * FROM Job ORDER BY posted_date DESC";
+$search = "";
+$location = "";
+$job_type = "";
+$salary = "";
+
+if (isset($_GET['search'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+}
+
+if (isset($_GET['location'])) {
+    $location = mysqli_real_escape_string($conn, $_GET['location']);
+}
+
+if (isset($_GET['job_type'])) {
+    $job_type = mysqli_real_escape_string($conn, $_GET['job_type']);
+}
+
+if (isset($_GET['salary'])) {
+    $salary = mysqli_real_escape_string($conn, $_GET['salary']);
+}
+
+$query = "SELECT * FROM Job";
+
+$conditions = [];
+
+if ($search != "") {
+    $conditions[] = "(job_title LIKE '%$search%'
+                    OR company_name LIKE '%$search%'
+                    OR location LIKE '%$search%')";
+}
+
+if ($location != "") {
+    $conditions[] = "location='$location'";
+}
+
+if ($job_type != "") {
+    $conditions[] = "job_type='$job_type'";
+}
+
+if ($salary != "") {
+    $conditions[] = "salary >= '$salary'";
+}
+
+if (count($conditions) > 0) {
+    $query .= " WHERE " . implode(" AND ", $conditions);
+}
+
+$query .= " ORDER BY posted_date DESC";
 
 $result = mysqli_query($conn, $query);
-
 ?>
 
 
@@ -44,33 +90,58 @@ $result = mysqli_query($conn, $query);
     <section class="search-section">
         <h2>Find Your Dream Job</h2>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search Jobs">
-            <button>Search</button>
-        </div>
+        <form method="GET" action="Jobs.php">
+            <div class="search-form">
+                <input type="text" name="search" placeholder="Search by job title, company or location"
+                    value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
 
-        <div class="filter">
-            <label for="location">Location</label>
-            <select id="location">
-                <option>Location</option>
-                <option>Pune</option>
-                <option>Mumbai</option>
-            </select>
+                <button type="submit">Search</button>
 
-            <label for="jobType">Job Type</label>
-            <select id="jobType">
-                <option>Job type</option>
-                <option>Intership</option>
-                <option>Full Time</option>
-            </select>
+            </div>
 
-            <label for="salary">Salary</label>
-            <select id="salary">
-                <option>Salary</option>
-                <option>$10k - $20k</option>
-                <option>$20k -$30k</option>
-            </select>
-        </div>
+
+            <div class="filter">
+
+                <select name="location">
+                    <option value="">Location</option>
+                    <option value="Pune" <?php if ($location == "Pune")
+                        echo "selected"; ?>>Pune</option>
+                    <option value="Mumbai" <?php if ($location == "Mumbai")
+                        echo "selected"; ?>>Mumbai</option>
+                    <option value="Kolhapur" <?php if ($location == "Kolhapur")
+                        echo "selected"; ?>>Kolhapur</option>
+                </select>
+
+                <select name="job_type">
+                    <option value="">Job Type</option>
+                    <option value="Full Time" <?php if ($job_type == "Full Time")
+                        echo "selected"; ?>>Full Time
+                    </option>
+                    <option value="Part Time" <?php if ($job_type == "Part Time")
+                        echo "selected"; ?>>Part Time
+                    </option>
+                    <option value="Internship" <?php if ($job_type == "Internship")
+                        echo "selected"; ?>>Internship
+                    </option>
+                </select>
+
+                <select name="salary">
+                    <option value="">Salary</option>
+                    <option value="10000" <?php if ($salary == "10000")
+                        echo "selected"; ?>>Above ₹10,000</option>
+                    <option value="20000" <?php if ($salary == "20000")
+                        echo "selected"; ?>>Above ₹20,000</option>
+                    <option value="50000" <?php if ($salary == "50000")
+                        echo "selected"; ?>>Above ₹50,000</option>
+                </select>
+
+
+
+            </div>
+
+        </form>
+
+
     </section>
 
     <section class="jobs">

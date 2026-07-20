@@ -48,9 +48,9 @@ $job_result = mysqli_query($conn, $job_query);
         <nav>
             <a href="Recruiter_Dashboard.php">Home</a>
             <a href="Post_Jobs.php">Post Job</a>
-            <a href="Applicants.html">Applicants</a>
+            <a href="Applicants.php">Applicants</a>
             <a href="Company_Profile.php">Company Profile</a>
-            <a href="/Home/index.html">Logout</a>
+            <a href="../Home/index.html">Logout</a>
         </nav>
     </header>
 
