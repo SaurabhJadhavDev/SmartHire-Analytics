@@ -8,11 +8,16 @@ $recruiter_id = $_SESSION['recruiter_id'];
 
 $search = "";
 
+$selected_job = "";
+
+if(isset($_GET['job_id']))
+{
+    $selected_job = $_GET['job_id'];
+}
+
 if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($conn, $_GET['search']);
 }
-
-$recruiter_id = $_SESSION['recruiter_id'];
 
 $query = "SELECT Application.application_id,Application.status,Application.application_date,
 Student.student_id,Student.full_Name,Student.email,Student.phone,Student.college,Student.degree,Student.resume,
@@ -22,10 +27,24 @@ ORDER BY Job.job_title,Application.application_date DESC";
 
 $result = mysqli_query($conn, $query);
 
-$job_query = "SELECT Job.job_id,Job.job_title,COUNT(Application.application_id)AS total_applicants
- FROM Job LEFT JOIN Application ON Job.job_id = Application.job_id WHERE Job.recruiter_id = '$recruiter_id'
- GROUP BY Job.job_id";
+$job_query = "
+SELECT Job.job_id,
+Job.job_title,
+COUNT(Application.application_id) AS total_applicants
 
+FROM Job
+
+LEFT JOIN Application
+ON Job.job_id = Application.job_id
+
+WHERE Job.recruiter_id='$recruiter_id'";
+
+if($selected_job != "")
+{
+    $job_query .= " AND Job.job_id='$selected_job'";
+}
+
+$job_query .= " GROUP BY Job.job_id";
 $job_result = mysqli_query($conn, $job_query);
 
 ?>
@@ -49,7 +68,7 @@ $job_result = mysqli_query($conn, $job_query);
             <nav>
                 <a href="Recruiter_Dashboard.php">Home</a>
                 <a href="Post_Jobs.php">Post Job</a>
-                <a href="Applicants.html">Applicants</a>
+                <a href="Applicants.php">Applicants</a>
                 <a href="Company_Profile.php">Company Profile</a>
                 <a href="../Home/index.html">Logout</a>
             </nav>
@@ -92,14 +111,17 @@ ON Student.student_id = Application.student_id
 INNER JOIN Job
 ON Job.job_id = Application.job_id
 
-WHERE Application.job_id='$job_id'
-AND (
+WHERE 1=1";
+
+if ($job_id != "") {
+    $query .= " AND Application.job_id='$job_id'";
+}
+
+$query .= " AND (
 Student.full_Name LIKE '%$search%'
 OR Job.job_title LIKE '%$search%'
-)
-
-ORDER BY Application.application_date DESC
-";
+)";
+$query .= " ORDER BY Application.application_date DESC";
 
             $result = mysqli_query($conn, $query);
             ?>

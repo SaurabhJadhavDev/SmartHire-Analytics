@@ -9,6 +9,13 @@ if (!isset($_SESSION['recruiter_id'])) {
 }
 
 $recruiter_id = $_SESSION['recruiter_id'];
+
+$job_id = "";
+
+if (isset($_GET['job_id'])) {
+    $job_id = $_GET['job_id'];
+}
+
 $recruiter_name = $_SESSION['recruiter_name'];
 
 $recruiter_name = $_SESSION['recruiter_name'];
@@ -20,6 +27,17 @@ $active_query = "SELECT COUNT(*) AS total_jobs
 $active_result = mysqli_query($conn, $active_query);
 
 $active_row = mysqli_fetch_assoc($active_result);
+
+$shortlist_query = "
+SELECT COUNT(*) AS total_shortlisted
+FROM Application
+WHERE recruiter_id = '$recruiter_id'
+AND status = 'Shortlisted'
+";
+
+$shortlist_result = mysqli_query($conn, $shortlist_query);
+
+$shortlist_row = mysqli_fetch_assoc($shortlist_result);
 
 $job_query = "SELECT *
               FROM Job
@@ -71,7 +89,7 @@ $job_result = mysqli_query($conn, $job_query);
         </div>
 
         <div class="summary-card">
-            <h3>15</h3>
+            <h3><?php echo $shortlist_row['total_shortlisted']; ?></h3>
             <p>Shortlisted Students</p>
         </div>
     </section>
@@ -99,8 +117,9 @@ $job_result = mysqli_query($conn, $job_query);
                     <p><strong>Salary:</strong>
                         <?php echo $job['salary']; ?>
                     </p>
-
-                    <button>View Applicants</button>
+                   <a href="Applicants.php?job_id=<?php echo $job['job_id']; ?>">
+                          <button>View Applicants</button>
+                   </a>
 
                 </div>
 
