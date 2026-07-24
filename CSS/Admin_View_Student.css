@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial,sans-serif;
+}
+
+body{
+    background: #f4f7fc;
+}
+
+.container{
+    width: 70%;
+    color: #2563eb;
+    margin-bottom: 30px;
+}
+
+h2{
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 30px;
+}
+
+/*Student Card */
+.student-info{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.student-info p{
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
+    font-size: 18px;
+}
+
+.student-info strong{
+    width: 130px;
+    color: #2563eb;
+}
+
+/* About Section */
+
+.about-card{
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.about-card h3{
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.about-card p{
+    margin-top: 15px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Buttons */
+
+.button-group{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.resume-btn,
+.back-btn{
+    text-decoration: none;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.resume-btn{
+    background: #16a34a;
+}
+
+.resume-btn:hover{
+    background: #15803d;
+}
+
+.back-btn{
+    background: #2563eb;
+}
+
+.back-btn:hover{
+    background: #2f3339;
+}
+
+.no-resume{
+    color:#dc2626;
+    font-weight:bold;
+    font-size:16px;
+}
+

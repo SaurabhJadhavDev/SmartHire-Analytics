@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #f3f6fb;
+    padding: 40px;
+}
+
+.container{
+    max-width: 700px;
+    margin: auto;
+}
+
+h2{
+    text-align: center;
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+.recruiter-card{
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    padding: 35px;
+}
+
+.company-logo{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto 25px;
+    border: 3px solid #2563eb;
+}
+
+.recruiter-info{
+    width: 100%;
+}
+
+.recruiter-info p{
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 16px;
+}
+
+.recruiter-info p:last-child{
+    border-bottom: none;
+}
+
+.recruiter-info strong{
+    width: 140px;
+    color: #1e3a8a;
+}
+
+.border-group{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.back-btn{
+    text-decoration: none;
+    background: #6b7280;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.back-btn:hover{
+    background: #4b5563;
+}
+
+.delete-btn{
+    text-decoration: none;
+    background: #dc2626;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.delete-btn:hover{
+    background: #b91c1c;
+}
+
+.button-group{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}

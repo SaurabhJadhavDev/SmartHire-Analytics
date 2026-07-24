@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 40px;
+    background: #f4f7fc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 900px;
+    margin: auto;
+}
+
+h2{
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+}
+
+.job-card,
+.description-card{
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.job-info p{
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 0;
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
+    line-height: 1.6;
+}
+
+.job-info p:last-child{
+    border-bottom: none;
+}
+
+.job-info strong{
+    width: 190px;
+    color: #1e3a8a;
+    flex-shrink: 0;
+}
+
+.description-card h3{
+    margin-top: 0;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.description-card p{
+    line-height: 1.8;
+    color: #444;
+    white-space: pre-wrap;
+}
+
+.button-group{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.back-btn,
+.delete-btn{
+    text-decoration: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.back-btn{
+    background: #6b7280;
+}
+
+.back-btn:hover{
+    background: #4b5563;
+}
+
+.delete-btn{
+    background: #dc2626;
+}
+
+.delete-btn:hover{
+    background: #b91c1c;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding: 20px;
+    }
+
+    .job-info p{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .job-info strong{
+        width: 100%;
+    }
+
+    .buttom-group{
+        flex-direction: column;
+    }
+
+    .back-btn,
+    .delete-btn{
+        text-align: center;
+    }
+}

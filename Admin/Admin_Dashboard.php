@@ -4,12 +4,14 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../CSS/Admin_Dashboard.css">
 </head>
+
 <body>
     <header>
         <h1>CareerConnect Admin</h1>
@@ -17,7 +19,7 @@ session_start();
         <nav>
             <a href="Admin_Dashboard.php">Dashboard</a>
             <a href="Manage_Students.php">Students</a>
-            <a href="Manage_Recruters.php">Recruiters</a>
+            <a href="Manage_Recruiters.php">Recruiters</a>
             <a href="Manage_Jobs.php">Jobs</a>
             <a href="Manage_Applications.php">Applications</a>
             <a href="../Home/index.html">Logout</a>
@@ -53,20 +55,20 @@ session_start();
 
                     <table>
 
-                    <tr>
-                        <th>Name</th>
-                        <th>College</th>
-                    </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>College</th>
+                        </tr>
 
-                    <tr>
-                        <th>Rahul</th>
-                        <th>ABC College</th>
-                    </tr>
+                        <tr>
+                            <th>Rahul</th>
+                            <th>ABC College</th>
+                        </tr>
 
-                    <tr>
-                       <td>Priya</td>
-                       <td>XYZ College</td> 
-                    </tr>
+                        <tr>
+                            <td>Priya</td>
+                            <td>XYZ College</td>
+                        </tr>
                     </table>
                 </div>
 
@@ -79,7 +81,17 @@ session_start();
                             <th>Recruiter</th>
                         </tr>
 
-                        <tr></tr>
+                        <tr>
+
+                            <th>TCS</th>
+                            <th>Amit</th>
+                        </tr>
+
+                        <tr>
+                            <td>Infosys</td>
+                            <td>Neha</td>
+                        </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -88,4 +100,5 @@ session_start();
 
     </section>
 </body>
+
 </html>
